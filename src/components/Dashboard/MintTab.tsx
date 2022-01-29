@@ -39,23 +39,26 @@ const MintTab = () => {
       version: new TransactionVersion(rawTransaction.version),
     });
   }
+
   const sendTransaction = Dapp.useSendTransaction();
-  const rawTransaction = {
-    value: '0.01',
-    data: 'dGVzdCBkYXRh',
-    receiver: address,
-    gasLimit: 500000,
-    gasPrice: 1000000000,
-    chainID: 'D',
-    version: 1,
-  };
-  const transaction = createTransactionFromRaw(rawTransaction);
-  const executeTransaction = () => {
+
+  const sendTransactionOnClick = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    const rawTransaction = {
+      value: '0.01',
+      data: 'dGVzdCBkYXRh',
+      receiver: address,
+      gasLimit: 500000,
+      gasPrice: 1000000000,
+      chainID: 'D',
+      version: 1,
+    };
+    const tx = createTransactionFromRaw(rawTransaction);
     sendTransaction({
-      transaction,
-      callbackRoute: '/home',
+      transaction: tx,
+      callbackRoute: '/dashboard',
     });
-  };
+  }
 
   return (
     <>
@@ -142,7 +145,7 @@ const MintTab = () => {
               fontSize={14}
               paddingTop={20}
               paddingBottom={20}
-              onClick={executeTransaction}
+              onClick={sendTransactionOnClick}
             >
               Mint
             </Button>

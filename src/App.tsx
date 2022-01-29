@@ -27,7 +27,7 @@ function App() {
           <Route path="/walletconnect" exact>
             <WalletConnect />
           </Route>
-          <Route path="/home" component={Dashboard} exact />
+          <Route path="/dashboard" component={Dashboard} exact />
           <Route path="/" component={Home} exact />
         </Switch>
       </Router>

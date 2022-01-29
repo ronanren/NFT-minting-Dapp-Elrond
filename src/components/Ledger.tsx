@@ -30,7 +30,7 @@ const Ledger = () => {
           alignItems="center"
           backgroundColor="#fff"
         >
-          <Dapp.Pages.Ledger callbackRoute="/home" />
+          <Dapp.Pages.Ledger callbackRoute="/dashboard" />
           <Button marginTop={15} onClick={goBack} width={120}>
             Back
           </Button>

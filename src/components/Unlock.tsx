@@ -19,7 +19,7 @@ const Unlock = () => {
           padding={30}
         >
           <Dapp.Pages.Unlock
-            callbackRoute="/home"
+            callbackRoute="/dashboard"
             lead="Please select your login method:"
             ledgerRoute="/ledger"
             walletConnectRoute="/walletconnect"

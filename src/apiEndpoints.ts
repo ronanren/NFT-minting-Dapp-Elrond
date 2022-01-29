@@ -5,3 +5,6 @@ export const getTransactionByHash = (txHash: string) =>
 
 export const getTransactions = (senderAddress: string, from = 0, size = 5) =>
   `${network.apiAddress}/transactions?sender=${senderAddress}&receiver=${senderAddress}&condition=should&from=${from}&size=${size}`;
+
+export const getNfts = (walletAddress: string) =>
+  `${network.apiAddress}/accounts/${walletAddress}/nfts`;

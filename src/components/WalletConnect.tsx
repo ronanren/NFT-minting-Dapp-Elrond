@@ -31,7 +31,7 @@ const WalletConnect = () => {
           alignItems="center"
         >
           <Dapp.Pages.WalletConnect
-            callbackRoute="/home"
+            callbackRoute="/dashboard"
             logoutRoute="/"
             title="Maiar Login"
             lead="Scan the QR code using Maiar"

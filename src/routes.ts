@@ -7,7 +7,7 @@ export const routes = [
     component: Dashboard,
   },
   {
-    path: '/home',
+    path: '/dashboard',
     component: Home,
     authenticatedRoute: true,
   },
