@@ -5,7 +5,7 @@ export const walletConnectBridge: string =
 export const walletConnectDeepLink: string =
   process.env.REACT_APP_WALLET_CONNECT_DEEP_LINK || '';
 export const NFTCollection: string =
-  process.env.NFT_COLLECTION || 'MEXFARM-ad7c90';
+  process.env.NFT_COLLECTION || 'HANDS-c615d8';
 
 export const network: Dapp.NetworkType = {
   id: process.env.REACT_APP_NETWORK_ID || '',

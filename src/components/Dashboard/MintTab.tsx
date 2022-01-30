@@ -45,11 +45,11 @@ const MintTab = () => {
   const sendTransactionOnClick = (e: React.SyntheticEvent) => {
     e.preventDefault();
     const rawTransaction = {
-      value: '0.01',
-      data: 'dGVzdCBkYXRh',
-      receiver: address,
-      gasLimit: 500000,
-      gasPrice: 1000000000,
+      value: '0.2',
+      data: Buffer.from('mint@01').toString('base64'),
+      receiver: 'erd1qqqqqqqqqqqqqpgqcuydf56ueqxqv6recm94pfp5llw8unwvw90qm62d5r',
+      gasLimit: 120000000,
+      gasPrice: 10000000000,
       chainID: 'D',
       version: 1,
     };

@@ -102,7 +102,7 @@ const AccountTab = () => {
                 justifyContent="center"
                 alignItems="center"
               >
-                <Image src={nft.media[0].originalUrl} alt="NFT image" width={200} />
+                <Image src={atob(nft.uris[0])} alt="NFT image" width={200} />
                 <Heading>{nft.name}</Heading>
                 <Pane>
                   <Text fontSize={12}>Collection: </Text>
@@ -128,18 +128,6 @@ const AccountTab = () => {
                     </Text>
                   </Link>
                 </Pane>
-                {
-                  nft.uris?.[0] && (
-                    <Pane is="a" href={atob(nft.uris[0])}>
-                      <Pane
-                        is="img"
-                        src={atob(nft.uris[0])}
-                        maxWidth="100%"
-                        width="auto"
-                      />
-                    </Pane>
-                  )
-                }
               </Card>) : null
           )))}
         {!pending && nfts.length === 0 && <Text>There are no NFTs yet.</Text>}
