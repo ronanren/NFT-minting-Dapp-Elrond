@@ -69,13 +69,6 @@ const MainLayout: React.FC = ({ children }) => {
             </Pane>
             {address ? (
               <Pane display="flex" alignItems="center">
-                <Heading
-                  onClick={() => window.open('https://google.com/', '_self')}
-                  cursor="pointer"
-                  marginRight={15}
-                >
-                  Roadmap
-                </Heading>
                 <Popover
                   position={Position.BOTTOM_RIGHT}
                   content={

@@ -72,7 +72,7 @@ body {
 /* elrond dapp tools overwrites end */
 
 #preview-nft {
-  max-width: 100%;
+  max-width: 400px;
   height: auto;
   margin: 10px 40px 0px 20px;
   border-radius: 25px;
@@ -90,4 +90,10 @@ h3 {
 
 p {
   color:#474d66;
+}
+
+@media screen and (max-width: 500px){
+  #preview-nft {
+    max-width: 300px;
+  }
 }

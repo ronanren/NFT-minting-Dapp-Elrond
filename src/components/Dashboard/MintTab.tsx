@@ -96,7 +96,7 @@ const MintTab = () => {
             alignItems="center"
           >
             <Heading fontSize={16}>Current Price:</Heading>
-            <Text fontSize={15}>0.5 xEGLD</Text>
+            <Text fontSize={15}>0.2 EGLD</Text>
           </Card>
           <Card
             width={smallRes ? '100%' : '40%'}

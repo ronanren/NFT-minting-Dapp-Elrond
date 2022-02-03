@@ -54,7 +54,7 @@ const Home: React.FC = () => {
               alignItems="center"
             >
               <Heading fontSize={16}>Current Price:</Heading>
-              <Text fontSize={15}>0.5 xEGLD</Text>
+              <Text fontSize={15}>0.2 EGLD</Text>
             </Card>
             <Card
               width={smallRes ? '100%' : '40%'}
@@ -90,12 +90,14 @@ const Home: React.FC = () => {
               <Heading size={600} marginBottom={10}>
                 Mint your own NFT today!
               </Heading>
-              <Text textAlign="center">
-                The NFT project is the home of 1111 algorithmically generated
-                NFT spread.
+              <Text textAlign="center" marginTop="10px">
+                Elrond Hands is a collection of 1,000 handcrafted Hands living on the Elrond Blockchain!
               </Text>
-              <Text textAlign="center">
-                The minting price increments by 10% for every 100 NFT minted.
+              <Text textAlign="center" marginTop="5px">
+                50% of the profits will be donated to an association against discrimination
+              </Text>
+              <Text textAlign="center" marginTop="5px">
+                With this collection, we want to raise awareness about the dangers of discrimination in our world
               </Text>
               <Button
                 marginTop={20}
