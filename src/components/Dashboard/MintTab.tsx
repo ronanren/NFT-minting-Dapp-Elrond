@@ -1,8 +1,12 @@
 import { Pane, Card, Text, Button, Heading } from 'evergreen-ui';
 import { useMediaQuery } from 'react-responsive';
+import { useEffect, useRef, useState } from 'react';
 import previewNFT from '../../static/media/previewNFT.gif';
 import Roadmap from './Roadmap';
+import { getRemainingNfts } from '../../apiEndpoints';
 import * as Dapp from '@elrondnetwork/dapp';
+import { NFTContract, network } from '../../config';
+import { NetworkConfig } from '@elrondnetwork/erdjs';
 import {
   Transaction,
   GasLimit,
@@ -16,9 +20,30 @@ import {
 
 const MintTab = () => {
   const { account, address, explorerAddress } = Dapp.useContext();
+  const [remainingNFT, setRemainingNfts] = useState([]);
+  const [pending, setPending] = useState(false);
+  const mounted = useRef(true);
   const smallRes = useMediaQuery({
     query: '(max-width: 600px)',
   });
+
+  useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
+    setPending(true);
+    const fetchRemainingNfts = async () => {
+      const response = await fetch(getRemainingNfts(), { signal });
+      const data = await response.json();
+      if (mounted.current) {
+        setRemainingNfts(data);
+        setPending(false);
+      }
+    };
+    fetchRemainingNfts();
+    return () => {
+      mounted.current = false;
+    };
+  }, [address]);
 
   function createTransactionFromRaw(rawTransaction: {
     value: string;
@@ -47,10 +72,10 @@ const MintTab = () => {
     const rawTransaction = {
       value: '0.2',
       data: Buffer.from('mint@01').toString('base64'),
-      receiver: 'erd1qqqqqqqqqqqqqpgqcuydf56ueqxqv6recm94pfp5llw8unwvw90qm62d5r',
-      gasLimit: 120000000,
-      gasPrice: 10000000000,
-      chainID: 'D',
+      receiver: NFTContract,
+      gasLimit: NetworkConfig.getDefault().MinGasLimit.valueOf() + NetworkConfig.getDefault().GasPerDataByte * Buffer.from(Buffer.from('mint@01').toString('base64')).length,
+      gasPrice: 1000000000,
+      chainID: NetworkConfig.getDefault().ChainID.valueOf(),
       version: 1,
     };
     const tx = createTransactionFromRaw(rawTransaction);
@@ -113,7 +138,7 @@ const MintTab = () => {
             alignItems="center"
           >
             <Heading fontSize={16}>Total Minted:</Heading>
-            <Text fontSize={15}>458/1111</Text>
+            <Text fontSize={15}>{remainingNFT}/1111</Text>
           </Card>
           <Card
             width={smallRes ? '100%' : '90%'}
@@ -132,12 +157,14 @@ const MintTab = () => {
             <Heading size={600} marginBottom={10}>
               Mint your own NFT today!
             </Heading>
-            <Text textAlign="center">
-              The NFT project is the home of 1111 algorithmically generated NFT
-              spread.
+            <Text textAlign="center" marginTop="10px">
+              Elrond Hands is a collection of 1,000 handcrafted Hands living on the Elrond Blockchain!
             </Text>
-            <Text textAlign="center">
-              The minting price increments by 10% for every 100 NFT minted.
+            <Text textAlign="center" marginTop="5px">
+              50% of the profits will be donated to an association against discrimination
+            </Text>
+            <Text textAlign="center" marginTop="5px">
+              With this collection, we want to raise awareness about the dangers of discrimination in our world
             </Text>
             <Button
               marginTop={20}

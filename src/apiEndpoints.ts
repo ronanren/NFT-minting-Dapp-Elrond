@@ -1,4 +1,4 @@
-import { network } from './config';
+import { network, NFTCollection } from './config';
 
 export const getTransactionByHash = (txHash: string) =>
   `${network.apiAddress}/transactions/${txHash}`;
@@ -8,3 +8,6 @@ export const getTransactions = (senderAddress: string, from = 0, size = 5) =>
 
 export const getNfts = (walletAddress: string) =>
   `${network.apiAddress}/accounts/${walletAddress}/nfts`;
+
+export const getRemainingNfts = () =>
+  `${network.apiAddress}/nfts/count?collection=${NFTCollection}`;

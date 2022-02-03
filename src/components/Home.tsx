@@ -1,12 +1,38 @@
 import MainLayout from './MainLayout';
 import { useHistory } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
+import { useEffect, useRef, useState } from 'react';
+import { getRemainingNfts } from '../apiEndpoints';
+import { NFTContract } from '../config';
 import previewNFT from '../static/media/previewNFT.gif';
 import { Pane, Button, Text, Card, Heading } from 'evergreen-ui';
+import * as Dapp from '@elrondnetwork/dapp';
 import Roadmap from './Dashboard/Roadmap';
 
 const Home: React.FC = () => {
   const history = useHistory();
+  const { account, address, explorerAddress } = Dapp.useContext();
+  const [remainingNFT, setRemainingNfts] = useState([]);
+  const [pending, setPending] = useState(false);
+  const mounted = useRef(true);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
+    setPending(true);
+    const fetchRemainingNfts = async () => {
+      const response = await fetch(getRemainingNfts(), { signal });
+      const data = await response.json();
+      if (mounted.current) {
+        setRemainingNfts(data);
+        setPending(false);
+      }
+    };
+    fetchRemainingNfts();
+    return () => {
+      mounted.current = false;
+    };
+  }, [address]);
 
   const unlock = () => {
     history.push('/unlock');
@@ -71,7 +97,7 @@ const Home: React.FC = () => {
               alignItems="center"
             >
               <Heading fontSize={16}>Total Minted:</Heading>
-              <Text fontSize={15}>458/1111</Text>
+              <Text fontSize={15}>{remainingNFT}/100</Text>
             </Card>
             <Card
               width={smallRes ? '100%' : '90%'}
