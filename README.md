@@ -31,6 +31,7 @@ elven-tools deploy nft-minter
 elven-tools nft-minter issue-collection-token
 elven-tools nft-minter set-roles
 elven-tools nft-minter start-minting
+elven-tools nft-minter shuffle
 ```
 
 ### Configuration

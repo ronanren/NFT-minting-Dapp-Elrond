@@ -5,18 +5,9 @@ import previewNFT from '../../static/media/previewNFT.gif';
 import Roadmap from './Roadmap';
 import { getRemainingNfts } from '../../apiEndpoints';
 import * as Dapp from '@elrondnetwork/dapp';
-import { NFTContract, network } from '../../config';
-import { NetworkConfig } from '@elrondnetwork/erdjs';
-import {
-  Transaction,
-  GasLimit,
-  GasPrice,
-  Address,
-  TransactionPayload,
-  Balance,
-  ChainID,
-  TransactionVersion,
-} from '@elrondnetwork/erdjs';
+import { NFTContract } from '../../config';
+import { RawTransactionType } from '../../helpers/types';
+import useNewTransaction from '../useNewTransaction';
 
 const MintTab = () => {
   const { account, address, explorerAddress } = Dapp.useContext();
@@ -26,6 +17,9 @@ const MintTab = () => {
   const smallRes = useMediaQuery({
     query: '(max-width: 600px)',
   });
+
+  const DROP_SIZE = 100;
+  const DROP_PRICE = 0.2;
 
   useEffect(() => {
     const controller = new AbortController();
@@ -45,45 +39,25 @@ const MintTab = () => {
     };
   }, [address]);
 
-  function createTransactionFromRaw(rawTransaction: {
-    value: string;
-    receiver: string;
-    gasPrice: number;
-    gasLimit: number;
-    data: string;
-    chainID: string;
-    version: number;
-  }) {
-    return new Transaction({
-      value: Balance.egld(rawTransaction.value),
-      data: TransactionPayload.fromEncoded(rawTransaction.data),
-      receiver: new Address(rawTransaction.receiver),
-      gasLimit: new GasLimit(rawTransaction.gasLimit),
-      gasPrice: new GasPrice(rawTransaction.gasPrice),
-      chainID: new ChainID(rawTransaction.chainID),
-      version: new TransactionVersion(rawTransaction.version),
-    });
-  }
-
   const sendTransaction = Dapp.useSendTransaction();
-
-  const sendTransactionOnClick = (e: React.SyntheticEvent) => {
-    e.preventDefault();
-    const rawTransaction = {
-      value: '0.2',
-      data: Buffer.from('mint@01').toString('base64'),
-      receiver: NFTContract,
-      gasLimit: NetworkConfig.getDefault().MinGasLimit.valueOf() + NetworkConfig.getDefault().GasPerDataByte * Buffer.from(Buffer.from('mint@01').toString('base64')).length,
-      gasPrice: 1000000000,
-      chainID: NetworkConfig.getDefault().ChainID.valueOf(),
-      version: 1,
+  const newTransaction = useNewTransaction();
+  const send =
+    (transaction: RawTransactionType) => async (e: React.MouseEvent) => {
+      transaction.value = `0.2`;
+      transaction.data = `mint@01`;
+      e.preventDefault();
+      sendTransaction({
+        transaction: newTransaction(transaction),
+        callbackRoute: "dahsboard",
+      });
     };
-    const tx = createTransactionFromRaw(rawTransaction);
-    sendTransaction({
-      transaction: tx,
-      callbackRoute: '/dashboard',
-    });
-  }
+
+  const mintTransaction: RawTransactionType = {
+    receiver: NFTContract,
+    data: "mint",
+    value: `${DROP_PRICE}`,
+    gasLimit: 40000000,
+  };
 
   return (
     <>
@@ -121,7 +95,7 @@ const MintTab = () => {
             alignItems="center"
           >
             <Heading fontSize={16}>Current Price:</Heading>
-            <Text fontSize={15}>0.2 EGLD</Text>
+            <Text fontSize={15}>{DROP_PRICE} EGLD</Text>
           </Card>
           <Card
             width={smallRes ? '100%' : '40%'}
@@ -138,7 +112,7 @@ const MintTab = () => {
             alignItems="center"
           >
             <Heading fontSize={16}>Total Minted:</Heading>
-            <Text fontSize={15}>{remainingNFT}/1111</Text>
+            <Text fontSize={15}>{remainingNFT}/{DROP_SIZE}</Text>
           </Card>
           <Card
             width={smallRes ? '100%' : '90%'}
@@ -172,7 +146,7 @@ const MintTab = () => {
               fontSize={14}
               paddingTop={20}
               paddingBottom={20}
-              onClick={sendTransactionOnClick}
+              onClick={send(mintTransaction)}
             >
               Mint
             </Button>
