@@ -48,7 +48,7 @@ const MintTab = () => {
       e.preventDefault();
       sendTransaction({
         transaction: newTransaction(transaction),
-        callbackRoute: "dahsboard",
+        callbackRoute: "/dashboard",
       });
     };
 
@@ -93,9 +93,10 @@ const MintTab = () => {
             flexDirection="column"
             justifyContent="center"
             alignItems="center"
+            className="card"
           >
-            <Heading fontSize={16}>Current Price:</Heading>
-            <Text fontSize={15}>{DROP_PRICE} EGLD</Text>
+            <Heading fontSize={16} className="h2">Current Price:</Heading>
+            <Text fontSize={15} className="text">{DROP_PRICE} EGLD</Text>
           </Card>
           <Card
             width={smallRes ? '100%' : '40%'}
@@ -110,9 +111,10 @@ const MintTab = () => {
             flexDirection="column"
             justifyContent="center"
             alignItems="center"
+            className="card"
           >
-            <Heading fontSize={16}>Total Minted:</Heading>
-            <Text fontSize={15}>{remainingNFT}/{DROP_SIZE}</Text>
+            <Heading fontSize={16} className="h2">Total Minted:</Heading>
+            <Text fontSize={15} className="text">{remainingNFT}/{DROP_SIZE}</Text>
           </Card>
           <Card
             width={smallRes ? '100%' : '90%'}
@@ -127,17 +129,18 @@ const MintTab = () => {
             flexDirection="column"
             justifyContent="center"
             alignItems="center"
+            className="card"
           >
-            <Heading size={600} marginBottom={10}>
+            <Heading size={600} marginBottom={10} className="h2">
               Mint your own NFT today!
             </Heading>
-            <Text textAlign="center" marginTop="10px">
+            <Text textAlign="center" marginTop="10px" className="text">
               Elrond Hands is a collection of 1,000 handcrafted Hands living on the Elrond Blockchain!
             </Text>
-            <Text textAlign="center" marginTop="5px">
+            <Text textAlign="center" marginTop="5px" className="text">
               50% of the profits will be donated to an association against discrimination
             </Text>
-            <Text textAlign="center" marginTop="5px">
+            <Text textAlign="center" marginTop="5px" className="text">
               With this collection, we want to raise awareness about the dangers of discrimination in our world
             </Text>
             <Button

@@ -73,13 +73,13 @@ const Home: React.FC = () => {
               paddingTop={smallRes ? 15 : 15}
               paddingBottom={smallRes ? 10 : 15}
               elevation={1}
-              backgroundColor="white"
               display="flex"
               flexDirection="column"
               justifyContent="center"
               alignItems="center"
+              className="card"
             >
-              <Heading fontSize={16}>Current Price:</Heading>
+              <Heading fontSize={16} className="h2">Current Price:</Heading>
               <Text fontSize={15}>0.2 EGLD</Text>
             </Card>
             <Card
@@ -90,14 +90,14 @@ const Home: React.FC = () => {
               paddingTop={smallRes ? 15 : 15}
               paddingBottom={smallRes ? 15 : 15}
               elevation={1}
-              backgroundColor="white"
               display="flex"
               flexDirection="column"
               justifyContent="center"
               alignItems="center"
+              className="card"
             >
-              <Heading fontSize={16}>Total Minted:</Heading>
-              <Text fontSize={15}>{remainingNFT}/100</Text>
+              <Heading fontSize={16} className="h2">Total Minted:</Heading>
+              <Text fontSize={15} className="text">{remainingNFT}/100</Text>
             </Card>
             <Card
               width={smallRes ? '100%' : '90%'}
@@ -107,22 +107,22 @@ const Home: React.FC = () => {
               paddingTop={smallRes ? 15 : 25}
               paddingBottom={smallRes ? 15 : 25}
               elevation={1}
-              backgroundColor="white"
               display="flex"
               flexDirection="column"
               justifyContent="center"
               alignItems="center"
+              className="card"
             >
-              <Heading size={600} marginBottom={10}>
+              <Heading size={600} marginBottom={10} className="h2">
                 Mint your own NFT today!
               </Heading>
-              <Text textAlign="center" marginTop="10px">
+              <Text textAlign="center" marginTop="10px" className="text">
                 Elrond Hands is a collection of 1,000 handcrafted Hands living on the Elrond Blockchain!
               </Text>
-              <Text textAlign="center" marginTop="5px">
+              <Text textAlign="center" marginTop="5px" className="text">
                 50% of the profits will be donated to an association against discrimination
               </Text>
-              <Text textAlign="center" marginTop="5px">
+              <Text textAlign="center" marginTop="5px" className="text">
                 With this collection, we want to raise awareness about the dangers of discrimination in our world
               </Text>
               <Button

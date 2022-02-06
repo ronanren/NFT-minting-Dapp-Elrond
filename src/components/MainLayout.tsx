@@ -40,7 +40,7 @@ const MainLayout: React.FC = ({ children }) => {
   return (
     <Pane>
       <Dapp.Authenticate routes={routes} unlockRoute="/unlock">
-        <Pane background="white" marginBottom={30} border="default">
+        <Pane background="transparent" marginBottom={30} border="none">
           <Pane
             maxWidth={1200}
             paddingX={30}
@@ -58,23 +58,24 @@ const MainLayout: React.FC = ({ children }) => {
                 cursor="pointer"
                 display="flex"
                 alignItems="center"
+                className="h2"
               >
                 NFT Minter
               </Heading>
               {!smallRes && (
-                <StatusIndicator color="success" marginLeft={20}>
+                <StatusIndicator color="success" marginLeft={20} marginTop={10} className="text">
                   {getChainName(chainId.valueOf() as ChainID)}
                 </StatusIndicator>
               )}
             </Pane>
             {address ? (
-              <Pane display="flex" alignItems="center">
+              <Pane display="flex" alignItems="center" marginTop={10}>
                 <Popover
                   position={Position.BOTTOM_RIGHT}
                   content={
                     <Menu>
                       <Menu.Group>
-                        <Menu.Item onSelect={logOut}>Logout</Menu.Item>
+                        <Menu.Item onSelect={logOut} className="text">Logout</Menu.Item>
                       </Menu.Group>
                     </Menu>
                   }
@@ -83,6 +84,7 @@ const MainLayout: React.FC = ({ children }) => {
                     color="success"
                     title={address}
                     cursor="pointer"
+                    className="text"
                   >
                     {shortenWalletAddress(address)}
                   </StatusIndicator>

@@ -45,14 +45,14 @@ const AccountTab = () => {
           marginBottom={25}
           padding={30}
           elevation={1}
-          backgroundColor="white"
+          className="card"
         >
-          <Heading size={700} marginBottom={10}>
+          <Heading size={700} marginBottom={10} className="h2">
             Your wallet address:
           </Heading>
           <Paragraph data-testid="accountTab-address">
             <Link href={`${explorerAddress}accounts/${address}`}>
-              <Text wordWrap="break-word">{address}</Text>
+              <Text wordWrap="break-word" className="text">{address}</Text>
             </Link>
           </Paragraph>
         </Card>
@@ -63,18 +63,18 @@ const AccountTab = () => {
           marginBottom={25}
           padding={30}
           elevation={1}
-          backgroundColor="white"
+          className="card"
         >
-          <Heading size={700} marginBottom={10}>
+          <Heading size={700} marginBottom={10} className="h2">
             Your wallet balance:
           </Heading>
-          <Paragraph data-testid="accountTab-balance">
+          <Paragraph data-testid="accountTab-balance" className="text">
             <Ui.Denominate value={account.balance} erdLabel="xEGLD" />
           </Paragraph>
         </Card>
       </Pane>
       <Pane marginBottom={30} marginTop={30}>
-        <Heading size={700}>Your NFTs:</Heading>
+        <Heading size={700} className="h2">Your NFTs:</Heading>
       </Pane>
       <Pane
         display="flex"
@@ -88,7 +88,6 @@ const AccountTab = () => {
           nfts.map((nft: any, index: number) => (
             NFTCollection == nft.collection ? (
               < Card
-                backgroundColor="white"
                 width={smallRes ? '100%' : '20%'}
                 marginTop={10}
                 marginBottom={10}
@@ -101,14 +100,16 @@ const AccountTab = () => {
                 flexDirection="column"
                 justifyContent="center"
                 alignItems="center"
+                className="card"
               >
-                <Image src={atob(nft.uris[0])} alt="NFT image" width={200} />
-                <Heading>{nft.name}</Heading>
+                <Image src={atob(nft.uris[0])} alt="NFT image" width={200} borderRadius={20} />
+                <Heading className="text" marginTop={15}>{nft.name}</Heading>
                 <Pane>
-                  <Text fontSize={12}>Collection: </Text>
+                  <Text fontSize={12} className="text">Collection: </Text>
                   <Link href={`${explorerAddress}collections/${nft.collection}`}>
                     <Text
                       color="gray800"
+                      className="text"
                       fontSize={12}
                       textDecoration="underline"
                     >
@@ -116,11 +117,12 @@ const AccountTab = () => {
                     </Text>
                   </Link>
                 </Pane>
-                <Pane marginBottom={10}>
-                  <Text fontSize={12}>Id: </Text>
+                <Pane>
+                  <Text fontSize={12} className="text">Id: </Text>
                   <Link href={`${explorerAddress}nfts/${nft.identifier}`}>
                     <Text
                       color="gray800"
+                      className="text"
                       fontSize={12}
                       textDecoration="underline"
                     >
