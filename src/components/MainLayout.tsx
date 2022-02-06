@@ -75,7 +75,7 @@ const MainLayout: React.FC = ({ children }) => {
                   content={
                     <Menu>
                       <Menu.Group>
-                        <Menu.Item onSelect={logOut} className="text">Logout</Menu.Item>
+                        <Menu.Item onSelect={logOut} >Logout</Menu.Item>
                       </Menu.Group>
                     </Menu>
                   }
@@ -95,6 +95,7 @@ const MainLayout: React.FC = ({ children }) => {
                 <Strong
                   onClick={() => history.push('/unlock')}
                   cursor="pointer"
+                  className="h2"
                 >
                   Login
                 </Strong>

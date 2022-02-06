@@ -74,7 +74,7 @@ const AccountTab = () => {
         </Card>
       </Pane>
       <Pane marginBottom={30} marginTop={30}>
-        <Heading size={700} className="h2">Your NFTs:</Heading>
+        <Heading size={700} className="h2">Your Elrond Hands:</Heading>
       </Pane>
       <Pane
         display="flex"

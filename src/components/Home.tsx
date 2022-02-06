@@ -80,7 +80,7 @@ const Home: React.FC = () => {
               className="card"
             >
               <Heading fontSize={16} className="h2">Current Price:</Heading>
-              <Text fontSize={15}>0.2 EGLD</Text>
+              <Text fontSize={15} className="text">0.2 EGLD</Text>
             </Card>
             <Card
               width={smallRes ? '100%' : '40%'}
