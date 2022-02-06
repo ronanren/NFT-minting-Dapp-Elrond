@@ -108,4 +108,10 @@ h3 {
   #preview-nft {
     max-width: 300px;
   }
+  #roadmap {
+    font-size: 40px;
+  }
+  #finance {
+    font-size: 40px;
+  }
 }

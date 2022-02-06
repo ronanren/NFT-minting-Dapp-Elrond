@@ -1,6 +1,10 @@
 # NFT-minting-Dapp-Elrond
 NFT minting Dapp for Elrond Blockchain⚡
 
+### Preview
+
+![alt text](https://github.com/ronanren/NFT-minting-Dapp-Elrond/blob/main/preview.png?raw=true)
+
 ```
 npm install
 npm start
