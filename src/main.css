@@ -109,6 +109,10 @@ h3 {
   background-color: #23242A !important;
 }
 
+#My\ NFTs {
+  box-shadow: none;
+}
+
 @media screen and (max-width: 500px){
   #preview-nft {
     max-width: 300px;
@@ -214,6 +218,8 @@ h3 {
 
 .countdown {
   margin-top: 15px;
+  margin-bottom: 15px;
   font-size: 45px;
   color: #d7dde0;
+  text-align: center;
 }
