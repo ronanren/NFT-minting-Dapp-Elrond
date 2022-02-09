@@ -13,5 +13,5 @@ export const network: Dapp.NetworkType = {
   walletAddress: "https://wallet.elrond.com",
   apiAddress: "https://api.elrond.com",
   gatewayAddress: "https://gateway.elrond.com",
-  explorerAddress: "http://explorer.elrond.com",
+  explorerAddress: "http://explorer.elrond.com/",
 };
