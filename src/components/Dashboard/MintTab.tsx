@@ -8,12 +8,15 @@ import * as Dapp from '@elrondnetwork/dapp';
 import { NFTContract } from '../../config';
 import { RawTransactionType } from '../../helpers/types';
 import useNewTransaction from '../useNewTransaction';
+import InputNumber from 'rsuite/InputNumber';
+import 'rsuite/dist/rsuite.min.css';
 
 const MintTab = () => {
   const { account, address, explorerAddress } = Dapp.useContext();
   const [remainingNFT, setRemainingNfts] = useState([]);
   const [pending, setPending] = useState(false);
   const mounted = useRef(true);
+  const [value, setValue] = useState(null);
   const smallRes = useMediaQuery({
     query: '(max-width: 600px)',
   });
@@ -43,8 +46,8 @@ const MintTab = () => {
   const newTransaction = useNewTransaction();
   const send =
     (transaction: RawTransactionType) => async (e: React.MouseEvent) => {
-      transaction.value = `0.2`;
-      transaction.data = `mint@01`;
+      transaction.value = String(DROP_PRICE * value);
+      transaction.data = `mint@${String(value).padStart(2, '0')}`;
       e.preventDefault();
       sendTransaction({
         transaction: newTransaction(transaction),
@@ -143,19 +146,30 @@ const MintTab = () => {
             <Text textAlign="center" marginTop="5px" className="text">
               With this collection, we want to raise awareness about the dangers of discrimination in our world
             </Text>
-            <Button
-              marginTop={20}
-              appearance="primary"
-              fontSize={14}
-              paddingTop={20}
-              paddingBottom={20}
-              onClick={send(mintTransaction)}
+            <Pane
+              display="flex"
+              flexDirection={smallRes ? 'column' : 'row'}
+              flexWrap="wrap"
+              alignItems="center"
+              justifyContent="center"
             >
-              Mint
-            </Button>
+              <div style={{ width: 80, margin: 15, paddingTop: 20 }}>
+                <InputNumber min={1} max={10} defaultValue={1} value={value ? value : 1} onChange={setValue} step={1} />
+              </div>
+              <Button
+                marginTop={20}
+                appearance="primary"
+                fontSize={14}
+                paddingTop={20}
+                paddingBottom={20}
+                onClick={send(mintTransaction)}
+              >
+                Mint
+              </Button>
+            </Pane>
           </Card>
         </Pane>
-      </Pane>
+      </Pane >
       <Roadmap />
     </>
   );
