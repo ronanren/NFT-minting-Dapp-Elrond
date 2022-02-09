@@ -7,11 +7,11 @@ export const NFTCollection = 'HANDS1-6f54d8';
 export const NFTContract = 'erd1qqqqqqqqqqqqqpgq2z9gqx45wkfrfvsadz0s2vrudq64mt54w90qpa5yan';
 
 export const network: Dapp.NetworkType = {
-  id: "devnet",
-  name: "devnet",
-  egldLabel: "xEGLD",
-  walletAddress: "https://devnet-wallet.elrond.com",
-  apiAddress: "https://devnet-api.elrond.com",
-  gatewayAddress: "https://devnet-gateway.elrond.com",
-  explorerAddress: "https://devnet-explorer.elrond.com/",
+  id: "mainnet",
+  name: "Mainnet",
+  egldLabel: "EGLD",
+  walletAddress: "https://wallet.elrond.com",
+  apiAddress: "https://api.elrond.com",
+  gatewayAddress: "https://gateway.elrond.com",
+  explorerAddress: "http://explorer.elrond.com",
 };

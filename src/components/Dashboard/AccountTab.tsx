@@ -69,7 +69,7 @@ const AccountTab = () => {
             Your wallet balance:
           </Heading>
           <Paragraph data-testid="accountTab-balance" className="text">
-            <Ui.Denominate value={account.balance} erdLabel="xEGLD" />
+            <Ui.Denominate value={account.balance} erdLabel="EGLD" />
           </Paragraph>
         </Card>
       </Pane>

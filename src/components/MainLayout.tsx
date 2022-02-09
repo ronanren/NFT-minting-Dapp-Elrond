@@ -28,7 +28,7 @@ const MainLayout: React.FC = ({ children }) => {
     if (chainID === ChainID.TESTNET) return 'Elrond Testnet';
     if (chainID === ChainID.DEVNET) return 'Elrond Devnet';
     if (chainID === ChainID.MAINNET) return 'Elrond Mainnet';
-    return '';
+    return 'Elrond Mainnet';
   };
 
   const logOut = (e: React.SyntheticEvent<Element, Event>) => {
@@ -60,7 +60,7 @@ const MainLayout: React.FC = ({ children }) => {
                 alignItems="center"
                 className="h2"
               >
-                NFT Minter
+                Elrond Hands
               </Heading>
               {!smallRes && (
                 <StatusIndicator color="success" marginLeft={20} marginTop={10} className="text">
