@@ -48,7 +48,7 @@ body {
 }
 
 .ub-pt_30px {
-  background-color: #23242A;
+  background-color: #23242A !important;
   border-radius: 10px;
 }
 
@@ -97,7 +97,7 @@ h3 {
   font-size: 16px;
 }
 
-span, .form-group {
+.form-group {
   color: #ecf0f1 !important;
 }
 
@@ -106,7 +106,7 @@ span, .form-group {
 }
 
 .card {
-  background-color: #23242A;
+  background-color: #23242A !important;
 }
 
 @media screen and (max-width: 500px){
