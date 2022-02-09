@@ -62,6 +62,9 @@ const MintTab = () => {
     gasLimit: 40000000,
   };
 
+  const date = new Date(2022, 1, 13, 14, 0, 0);
+  const dateForLaunch = Date.now().valueOf() > date.valueOf();
+
   return (
     <>
       <Pane
@@ -163,9 +166,13 @@ const MintTab = () => {
                 paddingTop={20}
                 paddingBottom={20}
                 onClick={send(mintTransaction)}
+                disabled={!dateForLaunch}
               >
                 Mint
               </Button>
+              <Text textAlign="center" marginTop="15px" marginLeft="10px" className="text">
+                Max 10 NFTs per wallet
+              </Text>
             </Pane>
           </Card>
         </Pane>

@@ -43,8 +43,7 @@ const Home: React.FC = () => {
     query: '(max-width: 600px)',
   });
 
-  const date = new Date(2021, 1, 13, 14, 0, 0);
-  const dateForLaunch = Date.now().valueOf() > date.valueOf();
+  const date = new Date(2022, 1, 13, 14, 0, 0);
 
   return (
     <MainLayout>
@@ -140,8 +139,6 @@ const Home: React.FC = () => {
                 paddingTop={20}
                 paddingBottom={20}
                 onClick={unlock}
-                disabled={!dateForLaunch}
-
               >
                 Unlock
               </Button>
