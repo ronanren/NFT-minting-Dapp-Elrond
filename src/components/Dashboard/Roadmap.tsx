@@ -1,4 +1,5 @@
 import { Pane, Heading, Text } from 'evergreen-ui';
+import { Link } from 'react-router-dom';
 
 const Roadmap = () => {
   return (
@@ -54,6 +55,11 @@ const Roadmap = () => {
         <Text marginTop={30} textAlign="center" fontSize="22px" lineHeight="35px" className="text">
           🖐🏿 100% of royalties will be reintroduced for marketing and other giveaways
         </Text>
+        <Heading textAlign="center" fontSize={60} marginTop={60} id="smartcontract" className="h2">
+          Smart contract 📃
+        </Heading>
+        <Link className="smartcontract" to={{ pathname: "https://explorer.elrond.com/accounts/erd1qqqqqqqqqqqqqpgqha8wtfenjpdyp7hrmn8n85qwlr89jryuksxswxn4dx" }} target="_blank">erd1qqqqqqqqqqqqqpgqha8wtfenjpdyp7hrmn8n85qwlr89jryuksxswxn4dx</Link>
+        <Text className="MadeWith">Made with ❤️ by <Link to={{ pathname: "https://github.com/ronanren" }} target="_blank">Ronan</Link></Text>
       </Pane>
     </>
   );

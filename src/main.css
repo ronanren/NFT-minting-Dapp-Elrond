@@ -121,27 +121,6 @@ h3 {
   margin: 10px 10px 0px 10px;
 }
 
-@media screen and (max-width: 500px){
-  #preview-nft {
-    max-width: 300px;
-  }
-  #roadmap {
-    font-size: 40px;
-  }
-  #finance {
-    font-size: 40px;
-  }
-  .twitter {
-    margin: 5px 2px 0px 15px; 
-  }
-  .discord {
-    margin: 5px 2px 0px 4px; 
-  }
-  .h2 {
-    font-size: 16px;
-  }
-}
-
 .modal {
     position: fixed;
     top: 0;
@@ -207,6 +186,36 @@ h3 {
     padding: 1rem;
 }
 
+.state.m-auto.p-4.text-center {
+    width: auto;
+    padding: 20px;
+    height: auto;
+    min-height: 320px;
+}
+
+.countdown {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 45px;
+  color: #d7dde0;
+  text-align: center;
+}
+
+.smartcontract {
+  margin-top: 50px;
+  font-size: 25px;
+  color: #3366FF;
+}
+
+.MadeWith {
+  padding-top: 50px;
+  font-size: 18px;
+}
+
+.ub-pb_40px {
+    padding-bottom: 20px;
+}
+
 @media (min-width: 576px) {
     .modal-dialog {
         max-width: 600px;
@@ -226,17 +235,34 @@ h3 {
     }
 }
 
-.state.m-auto.p-4.text-center {
-    width: auto;
-    padding: 20px;
-    height: auto;
-    min-height: 320px;
-}
-
-.countdown {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  font-size: 45px;
-  color: #d7dde0;
-  text-align: center;
+@media screen and (max-width: 500px){
+  #preview-nft {
+    max-width: 300px;
+  }
+  #roadmap {
+    font-size: 40px;
+  }
+  #finance {
+    font-size: 40px;
+  }
+  .twitter {
+    margin: 5px 2px 0px 20px; 
+  }
+  .discord {
+    margin: 5px 2px 0px 4px; 
+  }
+  .h2 {
+    font-size: 15px;
+  }
+  #titleElrond {
+    margin-left: -10px;
+  }
+  .smartcontract {
+    font-size: 16px;
+    word-break: break-all;
+    text-align: center;
+  }
+  #smartcontract {
+    font-size: 36px;
+  }
 }

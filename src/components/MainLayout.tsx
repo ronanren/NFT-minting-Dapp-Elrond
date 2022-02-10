@@ -59,6 +59,7 @@ const MainLayout: React.FC = ({ children }) => {
                 display="flex"
                 alignItems="center"
                 className="h2"
+                id="titleElrond"
               >
                 Elrond Hands
               </Heading>
