@@ -109,8 +109,16 @@ h3 {
   background-color: #23242A !important;
 }
 
-#My\ NFTs {
+#My\ NFTs, #Mint {
   box-shadow: none;
+}
+
+.twitter {
+  margin: 10px 10px 0px 20px;
+}
+
+.discord {
+  margin: 10px 10px 0px 10px;
 }
 
 @media screen and (max-width: 500px){
@@ -122,6 +130,15 @@ h3 {
   }
   #finance {
     font-size: 40px;
+  }
+  .twitter {
+    margin: 5px 2px 0px 10px; 
+  }
+  .discord {
+    margin: 5px 2px 0px 4px; 
+  }
+  .h2 {
+    font-size: 18px;
   }
 }
 
