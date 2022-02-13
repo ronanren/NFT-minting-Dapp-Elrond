@@ -128,10 +128,12 @@ const Home: React.FC = () => {
               <Text textAlign="center" marginTop="5px" className="text">
                 With this collection, we want to raise awareness about the dangers of discrimination in our world
               </Text>
+              {/*
               <Countdown
                 date={date}
                 renderer={props => <div className='countdown'>{props.days} days and {String(props.hours).padStart(2, '0')}:{String(props.minutes).padStart(2, '0')}:{String(props.seconds).padStart(2, '0')}</div>}
               />
+              */}
               <Button
                 marginTop={20}
                 appearance="primary"
@@ -140,7 +142,7 @@ const Home: React.FC = () => {
                 paddingBottom={20}
                 onClick={unlock}
               >
-                Unlock
+                Mint now
               </Button>
             </Card>
           </Pane>
