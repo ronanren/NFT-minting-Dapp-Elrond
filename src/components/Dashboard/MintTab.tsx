@@ -34,6 +34,7 @@ const MintTab = () => {
       if (mounted.current) {
         setRemainingNfts(data);
         setPending(false);
+        setValue(1);
       }
     };
     fetchRemainingNfts();
