@@ -25,17 +25,17 @@ const Roadmap = () => {
         </Text>
 
         <Text marginTop={30} textAlign="center" fontSize="22px" lineHeight="35px" className="text">
-          ❎ Presale of 100 Elrond Hands NFTs for 0.2 EGLD
+          ✅ Presale of 100 Elrond Hands NFTs for 0.2 EGLD
         </Text>
         <Text marginTop={30} textAlign="center" fontSize="22px" lineHeight="35px" className="text">
-          ❎ $1000 Giveaway on discord (no purchase necessary - 2 winners)
+          ❎ $1000 Giveaway on Twitter (no purchase necessary - 2 winners)
         </Text>
 
         <Text marginTop={30} textAlign="center" fontSize="22px" lineHeight="35px" className="text">
           ❎ First drop of 400 Elrond Hands NFTs for 0.3 EGLD
         </Text>
         <Text marginTop={30} textAlign="center" fontSize="22px" lineHeight="35px" className="text">
-          ❎ $2000 Giveaway on discord (no purchase necessary - 4 winners)
+          ❎ $2000 Giveaway on Twitter (no purchase necessary - 4 winners)
         </Text>
         <Text marginTop={30} textAlign="center" fontSize="22px" lineHeight="35px" className="text">
           ❎ Second drop of 500 Elrond Hands NFTs for 0.4 EGLD
